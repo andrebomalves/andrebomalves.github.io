@@ -1,0 +1,2493 @@
+<report db_version="19.0.0.0.0" inst_count="4" cpu_cores="44" hyperthread="Y" timezone_offset="-10800" exa="Y" packs="2" service_type="0">
+  <report_id><![CDATA[/orarep/xplan/typical%3ftable%3dPLAN_TABLE%26type%3dTYPICAL]]></report_id>
+  <plan>
+    <operation name="SELECT STATEMENT" id="0" depth="0" pos="2508878158318">
+      <card>201651163</card>
+      <bytes>453513465587</bytes>
+      <cost>2508878158318</cost>
+      <io_cost>2507849723409</io_cost>
+      <cpu_cost>20511105826462416</cpu_cost>
+      <time>999:59:59 </time>
+    </operation>
+    <operation name="COUNT" options="STOPKEY" id="1" depth="1" pos="1">
+      <predicates type="filter">ROWNUM=1</predicates>
+      <qblock>SEL$5</qblock>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID" id="2" depth="2" pos="1">
+      <object>INT_INTEGRACAOGNRE</object>
+      <card>1</card>
+      <bytes>10</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>15523</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$5</qblock>
+      <object_alias>&quot;GNRE&quot;@&quot;SEL$5&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="3" depth="3" pos="1">
+      <object>IDX_GNR_CODVENDA_TIPODOC</object>
+      <card>1</card>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8171</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;GNRE&quot;.&quot;CODVENDA&quot;=:B1 AND &quot;GNRE&quot;.&quot;CODTIPODOCUMENTO&quot;=:B2</predicates>
+      <qblock>SEL$5</qblock>
+      <object_alias>&quot;GNRE&quot;@&quot;SEL$5&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY GLOBAL INDEX ROWID" id="4" depth="1" pos="2">
+      <object>VEN_VENDA</object>
+      <card>1</card>
+      <bytes>12</bytes>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>24364</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="ROW LOCATION" stop="ROW LOCATION"/>
+      <qblock>SEL$6</qblock>
+      <object_alias>&quot;VDA&quot;@&quot;SEL$6&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="5" depth="2" pos="1">
+      <object>VVA_PK</object>
+      <card>1</card>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>15293</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;VDA&quot;.&quot;CODEMPRESA&quot;=:B1 AND &quot;VDA&quot;.&quot;CODVENDA&quot;=:B2</predicates>
+      <qblock>SEL$6</qblock>
+      <object_alias>&quot;VDA&quot;@&quot;SEL$6&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID" id="6" depth="1" pos="3">
+      <object>GEN_CIDADE</object>
+      <card>1</card>
+      <bytes>20</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>15503</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$7</qblock>
+      <object_alias>&quot;GCDCLI&quot;@&quot;SEL$7&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="7" depth="2" pos="1">
+      <object>GCE_PK</object>
+      <card>1</card>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8171</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;GCDCLI&quot;.&quot;CODCIDADE&quot;=:B1</predicates>
+      <qblock>SEL$7</qblock>
+      <object_alias>&quot;GCDCLI&quot;@&quot;SEL$7&quot;</object_alias>
+    </operation>
+    <operation name="SORT" options="AGGREGATE" id="8" depth="1" pos="4">
+      <card>1</card>
+      <bytes>18</bytes>
+      <qblock>SEL$8</qblock>
+    </operation>
+    <operation name="PARTITION RANGE" options="SINGLE" id="9" depth="2" pos="1">
+      <card>1</card>
+      <bytes>18</bytes>
+      <cost>4</cost>
+      <io_cost>4</io_cost>
+      <cpu_cost>29376</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="KEY" stop="KEY"/>
+    </operation>
+    <operation name="PARTITION HASH" options="SINGLE" id="10" depth="3" pos="1">
+      <card>1</card>
+      <bytes>18</bytes>
+      <cost>4</cost>
+      <io_cost>4</io_cost>
+      <cpu_cost>29376</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="KEY" stop="KEY"/>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY LOCAL INDEX ROWID BATCHED" id="11" depth="4" pos="1">
+      <object>VEN_VENDAITEM</object>
+      <card>1</card>
+      <bytes>18</bytes>
+      <cost>4</cost>
+      <io_cost>4</io_cost>
+      <cpu_cost>29376</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="KEY" stop="KEY"/>
+      <qblock>SEL$8</qblock>
+      <object_alias>&quot;VVI&quot;@&quot;SEL$8&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="12" depth="5" pos="1">
+      <object>IDX_VENDAP</object>
+      <card>1</card>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>21564</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="KEY" stop="KEY"/>
+      <predicates type="access">&quot;VVI&quot;.&quot;CODEMPRESA&quot;=:B1 AND &quot;VVI&quot;.&quot;CODVENDA&quot;=:B2</predicates>
+      <qblock>SEL$8</qblock>
+      <object_alias>&quot;VVI&quot;@&quot;SEL$8&quot;</object_alias>
+    </operation>
+    <operation name="SORT" options="AGGREGATE" id="13" depth="5" pos="5">
+      <card>1</card>
+      <bytes>16</bytes>
+      <qblock>SEL$9</qblock>
+    </operation>
+    <operation name="PARTITION RANGE" options="SINGLE" id="14" depth="6" pos="1">
+      <card>1</card>
+      <bytes>16</bytes>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>23124</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="KEY" stop="KEY"/>
+    </operation>
+    <operation name="PARTITION HASH" options="SINGLE" id="15" depth="7" pos="1">
+      <card>1</card>
+      <bytes>16</bytes>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>23124</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="KEY" stop="KEY"/>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY LOCAL INDEX ROWID BATCHED" id="16" depth="8" pos="1">
+      <object>VEN_VENDAITEM</object>
+      <card>1</card>
+      <bytes>16</bytes>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>23124</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="KEY" stop="KEY"/>
+      <qblock>SEL$9</qblock>
+      <object_alias>&quot;VDI&quot;@&quot;SEL$9&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="17" depth="9" pos="1">
+      <object>IDX_VENDAP</object>
+      <card>1</card>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>15313</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="KEY" stop="KEY"/>
+      <predicates type="access">&quot;VDI&quot;.&quot;CODEMPRESA&quot;=:B1 AND &quot;VDI&quot;.&quot;CODVENDA&quot;=:B2</predicates>
+      <predicates type="filter"> EXISTS (SELECT 0 FROM &quot;DELTA&quot;.&quot;VEN_TIPOVENDAEMPRESA&quot; &quot;TVE&quot; WHERE &quot;TVE&quot;.&quot;CODTIPOVENDA&quot;=:B1 AND &quot;TVE&quot;.&quot;CODEMPRESA&quot;=:B2 AND &quot;TVE&quot;.&quot;IDTINCLUIRFRETENOITEM&quot;=&apos;S&apos; AND &quot;TVE&quot;.&quot;CODTIPONEGOCIO&quot;=:B3)</predicates>
+      <qblock>SEL$9</qblock>
+      <object_alias>&quot;VDI&quot;@&quot;SEL$9&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" id="18" depth="10" pos="1">
+      <object>VEN_TIPOVENDAEMPRESA</object>
+      <card>1</card>
+      <bytes>12</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>15711</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">&quot;TVE&quot;.&quot;IDTINCLUIRFRETENOITEM&quot;=&apos;S&apos; AND &quot;TVE&quot;.&quot;CODTIPONEGOCIO&quot;=:B1</predicates>
+      <qblock>SEL$10</qblock>
+      <object_alias>&quot;TVE&quot;@&quot;SEL$10&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="19" depth="11" pos="1">
+      <object>IDX_VEN_TIPOVENDAEMP_EMPTPV</object>
+      <card>1</card>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8171</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;TVE&quot;.&quot;CODEMPRESA&quot;=:B1 AND &quot;TVE&quot;.&quot;CODTIPOVENDA&quot;=:B2</predicates>
+      <qblock>SEL$10</qblock>
+      <object_alias>&quot;TVE&quot;@&quot;SEL$10&quot;</object_alias>
+    </operation>
+    <operation name="SORT" options="AGGREGATE" id="20" depth="9" pos="6">
+      <card>1</card>
+      <bytes>20</bytes>
+      <qblock>SEL$11</qblock>
+    </operation>
+    <operation name="NESTED LOOPS" id="21" depth="10" pos="1">
+      <card>1</card>
+      <bytes>20</bytes>
+      <cost>4</cost>
+      <io_cost>4</io_cost>
+      <cpu_cost>33936</cpu_cost>
+      <time>00:00:01 </time>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID" id="22" depth="11" pos="1">
+      <object>VEN_TIPOVENDA</object>
+      <card>1</card>
+      <bytes>8</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>10031</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">&quot;TVD&quot;.&quot;IDTVENDANAOPRESENCIAL&quot;=&apos;S&apos;</predicates>
+      <qblock>SEL$11</qblock>
+      <object_alias>&quot;TVD&quot;@&quot;SEL$11&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="23" depth="12" pos="1">
+      <object>VTN_PK</object>
+      <card>1</card>
+      <cost>0</cost>
+      <io_cost>0</io_cost>
+      <cpu_cost>1050</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;TVD&quot;.&quot;CODTIPONEGOCIO&quot;=:B1 AND &quot;TVD&quot;.&quot;CODTIPOVENDA&quot;=:B2</predicates>
+      <qblock>SEL$11</qblock>
+      <object_alias>&quot;TVD&quot;@&quot;SEL$11&quot;</object_alias>
+    </operation>
+    <operation name="PARTITION RANGE" options="SINGLE" id="24" depth="11" pos="2">
+      <card>1</card>
+      <bytes>12</bytes>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>23904</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="KEY" stop="KEY"/>
+    </operation>
+    <operation name="PARTITION HASH" options="SINGLE" id="25" depth="12" pos="1">
+      <card>1</card>
+      <bytes>12</bytes>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>23904</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="KEY" stop="KEY"/>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY LOCAL INDEX ROWID BATCHED" id="26" depth="13" pos="1">
+      <object>VEN_VENDAITEM</object>
+      <card>1</card>
+      <bytes>12</bytes>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>23904</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="KEY" stop="KEY"/>
+      <qblock>SEL$11</qblock>
+      <object_alias>&quot;VDI&quot;@&quot;SEL$11&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="27" depth="14" pos="1">
+      <object>IDX_VENDAP</object>
+      <card>1</card>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>15293</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="KEY" stop="KEY"/>
+      <predicates type="access">&quot;VDI&quot;.&quot;CODEMPRESA&quot;=:B1 AND &quot;VDI&quot;.&quot;CODVENDA&quot;=:B2</predicates>
+      <qblock>SEL$11</qblock>
+      <object_alias>&quot;VDI&quot;@&quot;SEL$11&quot;</object_alias>
+    </operation>
+    <operation name="SORT" options="AGGREGATE" id="28" depth="1" pos="7">
+      <card>1</card>
+      <bytes>18</bytes>
+      <qblock>SEL$13</qblock>
+    </operation>
+    <operation name="PARTITION RANGE" options="SINGLE" id="29" depth="2" pos="1">
+      <card>1</card>
+      <bytes>18</bytes>
+      <cost>4</cost>
+      <io_cost>4</io_cost>
+      <cpu_cost>29376</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="KEY" stop="KEY"/>
+    </operation>
+    <operation name="PARTITION HASH" options="SINGLE" id="30" depth="3" pos="1">
+      <card>1</card>
+      <bytes>18</bytes>
+      <cost>4</cost>
+      <io_cost>4</io_cost>
+      <cpu_cost>29376</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="KEY" stop="KEY"/>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY LOCAL INDEX ROWID BATCHED" id="31" depth="4" pos="1">
+      <object>VEN_VENDAITEM</object>
+      <card>1</card>
+      <bytes>18</bytes>
+      <cost>4</cost>
+      <io_cost>4</io_cost>
+      <cpu_cost>29376</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="KEY" stop="KEY"/>
+      <qblock>SEL$13</qblock>
+      <object_alias>&quot;VVI&quot;@&quot;SEL$13&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="32" depth="5" pos="1">
+      <object>IDX_VENDAP</object>
+      <card>1</card>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>21564</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="KEY" stop="KEY"/>
+      <predicates type="access">&quot;VVI&quot;.&quot;CODEMPRESA&quot;=:B1 AND &quot;VVI&quot;.&quot;CODVENDA&quot;=:B2</predicates>
+      <qblock>SEL$13</qblock>
+      <object_alias>&quot;VVI&quot;@&quot;SEL$13&quot;</object_alias>
+    </operation>
+    <operation name="SORT" options="AGGREGATE" id="33" depth="5" pos="8">
+      <card>1</card>
+      <bytes>16</bytes>
+      <qblock>SEL$14</qblock>
+    </operation>
+    <operation name="PARTITION RANGE" options="SINGLE" id="34" depth="6" pos="1">
+      <card>1</card>
+      <bytes>16</bytes>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>23124</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="KEY" stop="KEY"/>
+    </operation>
+    <operation name="PARTITION HASH" options="SINGLE" id="35" depth="7" pos="1">
+      <card>1</card>
+      <bytes>16</bytes>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>23124</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="KEY" stop="KEY"/>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY LOCAL INDEX ROWID BATCHED" id="36" depth="8" pos="1">
+      <object>VEN_VENDAITEM</object>
+      <card>1</card>
+      <bytes>16</bytes>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>23124</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="KEY" stop="KEY"/>
+      <qblock>SEL$14</qblock>
+      <object_alias>&quot;VDI&quot;@&quot;SEL$14&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="37" depth="9" pos="1">
+      <object>IDX_VENDAP</object>
+      <card>1</card>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>15313</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="KEY" stop="KEY"/>
+      <predicates type="access">&quot;VDI&quot;.&quot;CODEMPRESA&quot;=:B1 AND &quot;VDI&quot;.&quot;CODVENDA&quot;=:B2</predicates>
+      <predicates type="filter"> EXISTS (SELECT 0 FROM &quot;DELTA&quot;.&quot;VEN_TIPOVENDAEMPRESA&quot; &quot;TVE&quot; WHERE &quot;TVE&quot;.&quot;CODTIPOVENDA&quot;=:B1 AND &quot;TVE&quot;.&quot;CODEMPRESA&quot;=:B2 AND &quot;TVE&quot;.&quot;IDTINCLUIRFRETENOITEM&quot;=&apos;S&apos; AND &quot;TVE&quot;.&quot;CODTIPONEGOCIO&quot;=:B3)</predicates>
+      <qblock>SEL$14</qblock>
+      <object_alias>&quot;VDI&quot;@&quot;SEL$14&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" id="38" depth="10" pos="1">
+      <object>VEN_TIPOVENDAEMPRESA</object>
+      <card>1</card>
+      <bytes>12</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>15711</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">&quot;TVE&quot;.&quot;IDTINCLUIRFRETENOITEM&quot;=&apos;S&apos; AND &quot;TVE&quot;.&quot;CODTIPONEGOCIO&quot;=:B1</predicates>
+      <qblock>SEL$15</qblock>
+      <object_alias>&quot;TVE&quot;@&quot;SEL$15&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="39" depth="11" pos="1">
+      <object>IDX_VEN_TIPOVENDAEMP_EMPTPV</object>
+      <card>1</card>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8171</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;TVE&quot;.&quot;CODEMPRESA&quot;=:B1 AND &quot;TVE&quot;.&quot;CODTIPOVENDA&quot;=:B2</predicates>
+      <qblock>SEL$15</qblock>
+      <object_alias>&quot;TVE&quot;@&quot;SEL$15&quot;</object_alias>
+    </operation>
+    <operation name="SORT" options="AGGREGATE" id="40" depth="9" pos="9">
+      <card>1</card>
+      <bytes>20</bytes>
+      <qblock>SEL$16</qblock>
+    </operation>
+    <operation name="NESTED LOOPS" id="41" depth="10" pos="1">
+      <card>1</card>
+      <bytes>20</bytes>
+      <cost>4</cost>
+      <io_cost>4</io_cost>
+      <cpu_cost>33936</cpu_cost>
+      <time>00:00:01 </time>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID" id="42" depth="11" pos="1">
+      <object>VEN_TIPOVENDA</object>
+      <card>1</card>
+      <bytes>8</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>10031</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">&quot;TVD&quot;.&quot;IDTVENDANAOPRESENCIAL&quot;=&apos;S&apos;</predicates>
+      <qblock>SEL$16</qblock>
+      <object_alias>&quot;TVD&quot;@&quot;SEL$16&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="43" depth="12" pos="1">
+      <object>VTN_PK</object>
+      <card>1</card>
+      <cost>0</cost>
+      <io_cost>0</io_cost>
+      <cpu_cost>1050</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;TVD&quot;.&quot;CODTIPONEGOCIO&quot;=:B1 AND &quot;TVD&quot;.&quot;CODTIPOVENDA&quot;=:B2</predicates>
+      <qblock>SEL$16</qblock>
+      <object_alias>&quot;TVD&quot;@&quot;SEL$16&quot;</object_alias>
+    </operation>
+    <operation name="PARTITION RANGE" options="SINGLE" id="44" depth="11" pos="2">
+      <card>1</card>
+      <bytes>12</bytes>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>23904</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="KEY" stop="KEY"/>
+    </operation>
+    <operation name="PARTITION HASH" options="SINGLE" id="45" depth="12" pos="1">
+      <card>1</card>
+      <bytes>12</bytes>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>23904</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="KEY" stop="KEY"/>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY LOCAL INDEX ROWID BATCHED" id="46" depth="13" pos="1">
+      <object>VEN_VENDAITEM</object>
+      <card>1</card>
+      <bytes>12</bytes>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>23904</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="KEY" stop="KEY"/>
+      <qblock>SEL$16</qblock>
+      <object_alias>&quot;VDI&quot;@&quot;SEL$16&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="47" depth="14" pos="1">
+      <object>IDX_VENDAP</object>
+      <card>1</card>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>15293</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="KEY" stop="KEY"/>
+      <predicates type="access">&quot;VDI&quot;.&quot;CODEMPRESA&quot;=:B1 AND &quot;VDI&quot;.&quot;CODVENDA&quot;=:B2</predicates>
+      <qblock>SEL$16</qblock>
+      <object_alias>&quot;VDI&quot;@&quot;SEL$16&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" id="48" depth="14" pos="10">
+      <object>VEN_VENDANEGOCIACAO</object>
+      <card>1</card>
+      <bytes>12</bytes>
+      <cost>4</cost>
+      <io_cost>4</io_cost>
+      <cpu_cost>28976</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">&quot;VNEG&quot;.&quot;IDTTIPONEGOCIACAO&quot;=&apos;E&apos;</predicates>
+      <qblock>SEL$17</qblock>
+      <object_alias>&quot;VNEG&quot;@&quot;SEL$17&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="SKIP SCAN" id="49" depth="15" pos="1">
+      <object>PK_VEN_VENDANEGOCIACAO</object>
+      <card>1</card>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>21564</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;VNEG&quot;.&quot;CODVENDA&quot;=:B1 AND &quot;VNEG&quot;.&quot;CODEMPRESA&quot;=:B2</predicates>
+      <qblock>SEL$17</qblock>
+      <object_alias>&quot;VNEG&quot;@&quot;SEL$17&quot;</object_alias>
+    </operation>
+    <operation name="SORT" options="AGGREGATE" id="50" depth="15" pos="11">
+      <card>1</card>
+      <bytes>108</bytes>
+      <qblock>SEL$23B2990C</qblock>
+    </operation>
+    <operation name="NESTED LOOPS" options="ANTI" id="51" depth="16" pos="1">
+      <card>1</card>
+      <bytes>108</bytes>
+      <cost>125</cost>
+      <io_cost>125</io_cost>
+      <cpu_cost>7531630</cpu_cost>
+      <time>00:00:01 </time>
+    </operation>
+    <operation name="NESTED LOOPS" options="OUTER" id="52" depth="17" pos="1">
+      <card>1</card>
+      <bytes>87</bytes>
+      <cost>123</cost>
+      <io_cost>123</io_cost>
+      <cpu_cost>7500379</cpu_cost>
+      <time>00:00:01 </time>
+    </operation>
+    <operation name="NESTED LOOPS" options="ANTI" id="53" depth="18" pos="1">
+      <card>1</card>
+      <bytes>60</bytes>
+      <cost>6</cost>
+      <io_cost>6</io_cost>
+      <cpu_cost>44346</cpu_cost>
+      <time>00:00:01 </time>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" id="54" depth="19" pos="1">
+      <object>VEN_VENDANEGOCIACAO</object>
+      <card>1</card>
+      <bytes>35</bytes>
+      <cost>4</cost>
+      <io_cost>4</io_cost>
+      <cpu_cost>29057</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">&quot;VVN&quot;.&quot;IDTTIPONEGOCIACAO&quot;=&apos;E&apos; AND (&quot;VVN&quot;.&quot;CODNSUHOST&quot; IS NOT NULL OR &quot;VVN&quot;.&quot;CODTIPOPAGAMENTO&quot;&lt;&gt;6 AND &quot;VVN&quot;.&quot;CODTIPOPAGAMENTO&quot;&lt;&gt;8 AND &quot;VVN&quot;.&quot;CODTIPOPAGAMENTO&quot;&lt;&gt;20 AND &quot;VVN&quot;.&quot;CODTIPOPAGAMENTO&quot;&lt;&gt;19)</predicates>
+      <qblock>SEL$23B2990C</qblock>
+      <object_alias>&quot;VVN&quot;@&quot;SEL$2&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="55" depth="20" pos="1">
+      <object>PK_VEN_VENDANEGOCIACAO</object>
+      <card>1</card>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>21564</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;VVN&quot;.&quot;CODVENDA&quot;=:B1 AND &quot;VVN&quot;.&quot;CODEMPRESA&quot;=:B2</predicates>
+      <qblock>SEL$23B2990C</qblock>
+      <object_alias>&quot;VVN&quot;@&quot;SEL$2&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" id="56" depth="19" pos="2">
+      <object>VEN_PAGCARTEIRADIGITALCANCELA</object>
+      <card>3</card>
+      <bytes>75</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>15288</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">&quot;VVN&quot;.&quot;CODNSUHOST&quot;=&quot;CDC&quot;.&quot;CODNSUHOSTCANCELADO&quot; AND &quot;CDC&quot;.&quot;DATTRANSACAOCANCELADO&quot;=TO_DATE(INTERNAL_FUNCTION(&quot;VVN&quot;.&quot;DATPAGAMENTO&quot;))</predicates>
+      <qblock>SEL$23B2990C</qblock>
+      <object_alias>&quot;CDC&quot;@&quot;SEL$20&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="57" depth="20" pos="1">
+      <object>PK_VEN_PAGCARTDIGITALCANCELA</object>
+      <card>1</card>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>7871</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;CDC&quot;.&quot;CODEMPRESA&quot;=:B1</predicates>
+      <predicates type="filter">&quot;CDC&quot;.&quot;CODEMPRESA&quot;=&quot;VVN&quot;.&quot;CODEMPRESA&quot;</predicates>
+      <qblock>SEL$23B2990C</qblock>
+      <object_alias>&quot;CDC&quot;@&quot;SEL$20&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" id="58" depth="18" pos="2">
+      <object>VEN_CARTAOTRANSACAO</object>
+      <card>1</card>
+      <bytes>27</bytes>
+      <cost>117</cost>
+      <io_cost>117</io_cost>
+      <cpu_cost>7456033</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">&quot;VVN&quot;.&quot;CODAUTORIZACAO&quot;=&quot;VCT&quot;.&quot;CODAUTORIZACAO&quot;(+) AND &quot;VVN&quot;.&quot;CODNSUHOST&quot;=&quot;VCT&quot;.&quot;CODNSUHOST&quot;(+) AND &quot;VCT&quot;.&quot;CODAUTORIZACAO&quot;(+) IS NOT NULL</predicates>
+      <qblock>SEL$23B2990C</qblock>
+      <object_alias>&quot;VCT&quot;@&quot;SEL$1&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="59" depth="19" pos="1">
+      <object>IDX_VEN_CARTAOTRANS_EMPRESA</object>
+      <card>102</card>
+      <cost>59</cost>
+      <io_cost>59</io_cost>
+      <cpu_cost>6981215</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;VCT&quot;.&quot;CODEMPRESA&quot;(+)=:B1</predicates>
+      <predicates type="filter">&quot;VVN&quot;.&quot;CODEMPRESA&quot;=&quot;VCT&quot;.&quot;CODEMPRESA&quot;(+)</predicates>
+      <qblock>SEL$23B2990C</qblock>
+      <object_alias>&quot;VCT&quot;@&quot;SEL$1&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" id="60" depth="17" pos="2">
+      <object>VEN_CARTAOCANCELAMENTO</object>
+      <card>1</card>
+      <bytes>21</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>31251</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">&quot;VVN&quot;.&quot;CODNSUHOST&quot;=&quot;VCC&quot;.&quot;CODNSUHOSTCANCELADO&quot; AND TO_DATE(INTERNAL_FUNCTION(&quot;VCT&quot;.&quot;DATTRANSACAO&quot;))=TO_DATE(INTERNAL_FUNCTION(&quot;VCC&quot;.&quot;DATTRANSACAOCANCELADO&quot;))</predicates>
+      <qblock>SEL$23B2990C</qblock>
+      <object_alias>&quot;VCC&quot;@&quot;SEL$19&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="61" depth="18" pos="1">
+      <object>VCC_CARTAOCANCELAMENTO_PK</object>
+      <card>1</card>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>23721</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;VCC&quot;.&quot;CODEMPRESA&quot;=:B1</predicates>
+      <predicates type="filter">&quot;VCC&quot;.&quot;CODEMPRESA&quot;=&quot;VVN&quot;.&quot;CODEMPRESA&quot;</predicates>
+      <qblock>SEL$23B2990C</qblock>
+      <object_alias>&quot;VCC&quot;@&quot;SEL$19&quot;</object_alias>
+    </operation>
+    <operation name="SORT" options="AGGREGATE" id="62" depth="18" pos="12">
+      <card>1</card>
+      <bytes>24</bytes>
+      <qblock>SEL$21</qblock>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" id="63" depth="19" pos="1">
+      <object>VEN_VENDAPAGAMENTO</object>
+      <card>1</card>
+      <bytes>24</bytes>
+      <cost>4</cost>
+      <io_cost>4</io_cost>
+      <cpu_cost>29178</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">&quot;VPG&quot;.&quot;CODTIPOPAGAMENTO&quot;=1 OR &quot;VPG&quot;.&quot;CODTIPOPAGAMENTO&quot;=5 OR &quot;VPG&quot;.&quot;CODTIPOPAGAMENTO&quot;=13 OR NVL(&quot;VPG&quot;.&quot;IDTFIXO&quot;,&apos;N&apos;)=&apos;S&apos; OR &quot;VPG&quot;.&quot;CODNSUHOST&quot; IS NOT NULL AND (&quot;VPG&quot;.&quot;CODTIPOPAGAMENTO&quot;=6 OR &quot;VPG&quot;.&quot;CODTIPOPAGAMENTO&quot;=8 OR &quot;VPG&quot;.&quot;CODTIPOPAGAMENTO&quot;=19)</predicates>
+      <qblock>SEL$21</qblock>
+      <object_alias>&quot;VPG&quot;@&quot;SEL$21&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="64" depth="20" pos="1">
+      <object>IDX_VENDPG</object>
+      <card>1</card>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>21564</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;VPG&quot;.&quot;CODVENDA&quot;=:B1 AND &quot;VPG&quot;.&quot;CODEMPRESA&quot;=:B2</predicates>
+      <qblock>SEL$21</qblock>
+      <object_alias>&quot;VPG&quot;@&quot;SEL$21&quot;</object_alias>
+    </operation>
+    <operation name="SORT" options="AGGREGATE" id="65" depth="1" pos="13">
+      <card>1</card>
+      <bytes>6</bytes>
+      <qblock>SEL$22</qblock>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="66" depth="2" pos="1">
+      <object>IDX_GEN_EMPRESAMAXPAR_CLI</object>
+      <card>1</card>
+      <bytes>6</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>7521</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;EMX&quot;.&quot;CODCLIENTE&quot;=:B1</predicates>
+      <qblock>SEL$22</qblock>
+      <object_alias>&quot;EMX&quot;@&quot;SEL$22&quot;</object_alias>
+    </operation>
+    <operation name="NESTED LOOPS" options="SEMI" id="67" depth="1" pos="14">
+      <card>1</card>
+      <bytes>64</bytes>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>25204</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$23</qblock>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID" id="68" depth="2" pos="1">
+      <object>LOG_FRTTRANSPORTADOR</object>
+      <card>1</card>
+      <bytes>50</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>16183</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$23</qblock>
+      <object_alias>&quot;FRT&quot;@&quot;SEL$23&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="69" depth="3" pos="1">
+      <object>LOG_FRTTRANSPORTADOR_PK</object>
+      <card>1</card>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8171</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;FRT&quot;.&quot;CODTRANSPORTADOR&quot;= (SELECT &quot;CODTRANPORTADOR&quot;.&quot;CODTRANSPORTADOR&quot; FROM  ( (SELECT &quot;LFT&quot;.&quot;CODTRANSPORTADOR&quot; &quot;CODTRANSPORTADOR&quot; FROM &quot;MANAGER&quot;.&quot;FORNEC_FOR&quot; &quot;FRN&quot;,&quot;DELTA&quot;.&quot;GEN_CIDADE&quot; &quot;GCI&quot;,&quot;DELTA&quot;.&quot;LOG_FRTTRANSPORTADOR&quot; &quot;LFT&quot;,&quot;DELTA&quot;.&quot;GEN_EMPRESA&quot; &quot;EMP&quot;,&quot;DELTA&quot;.&quot;VEN_VENDA&quot; &quot;VDA&quot; WHERE ROWNUM=1 AND &quot;VDA&quot;.&quot;CODVENDA&quot;=:B1 AND &quot;VDA&quot;.&quot;CODEMPRESA&quot;=:B2 AND &quot;VDA&quot;.&quot;CODTRANSPORTADOR&quot; IS NOT NULL AND &quot;VDA&quot;.&quot;CODPROCESSO&quot;=11 AND &quot;EMP&quot;.&quot;CODEMPRESA&quot;=:B3 AND &quot;LFT&quot;.&quot;CODTRANSPORTADOR&quot;=&quot;VDA&quot;.&quot;CODTRANSPORTADOR&quot; AND &quot;LFT&quot;.&quot;IDTCORREIOS&quot;=&apos;S&apos; AND &quot;LFT&quot;.&quot;IDTSITTRANSP&quot;=&apos;A&apos; AND &quot;GCI&quot;.&quot;CODCIDADE&quot;=&quot;LFT&quot;.&quot;CODCIDADE&quot; AND &quot;GCI&quot;.&quot;CODUF&quot;= (SELECT &quot;CID&quot;.&quot;CODUF&quot; FROM &quot;DELTA&quot;.&quot;GEN_CIDADE&quot; &quot;CID&quot; WHERE &quot;CID&quot;.&quot;CODCIDADE&quot;=:B4) AND &quot;FRN&quot;.&quot;FOR_CODIGO&quot;= REGEXP_REPLACE (&quot;LFT&quot;.&quot;NUMCNPJ&quot;,&apos;[^[:digit:]]&apos;)) UNION ALL  (SELECT &quot;OVD&quot;.&quot;CODTRANSPORTADOR&quot; &quot;CODTRANSPORTADOR&quot; FROM &quot;DELTA&quot;.&quot;GEN_EMPRESA&quot; &quot;EMP&quot;,&quot;DELTA&quot;.&quot;WMS_ONDAVENDADETALHE&quot; &quot;OVD&quot; WHERE &quot;OVD&quot;.&quot;CODVENDA&quot;=:B5 AND &quot;OVD&quot;.&quot;CODEMPRESA&quot;=&quot;EMP&quot;.&quot;CODEMPRESAWMS&quot; AND &quot;EMP&quot;.&quot;CODEMPRESA&quot;=:B6)) &quot;CODTRANPORTADOR&quot; WHERE ROWNUM=1)</predicates>
+      <qblock>SEL$23</qblock>
+      <object_alias>&quot;FRT&quot;@&quot;SEL$23&quot;</object_alias>
+    </operation>
+    <operation name="COUNT" options="STOPKEY" id="70" depth="4" pos="1">
+      <predicates type="filter">ROWNUM=1</predicates>
+      <qblock>SEL$24</qblock>
+    </operation>
+    <operation name="VIEW" id="71" depth="5" pos="1">
+      <card>2</card>
+      <bytes>26</bytes>
+      <cost>8</cost>
+      <io_cost>8</io_cost>
+      <cpu_cost>71852</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SET$1</qblock>
+      <object_alias>&quot;CODTRANPORTADOR&quot;@&quot;SEL$24&quot;</object_alias>
+    </operation>
+    <operation name="UNION-ALL" id="72" depth="6" pos="1">
+      <qblock>SET$1</qblock>
+    </operation>
+    <operation name="COUNT" options="STOPKEY" id="73" depth="7" pos="1">
+      <predicates type="filter">ROWNUM=1</predicates>
+      <qblock>SEL$BEDFCF44</qblock>
+    </operation>
+    <operation name="NESTED LOOPS" id="74" depth="8" pos="1">
+      <card>1</card>
+      <bytes>71</bytes>
+      <cost>5</cost>
+      <io_cost>5</io_cost>
+      <cpu_cost>45498</cpu_cost>
+      <time>00:00:01 </time>
+    </operation>
+    <operation name="NESTED LOOPS" id="75" depth="9" pos="1">
+      <card>1</card>
+      <bytes>64</bytes>
+      <cost>5</cost>
+      <io_cost>5</io_cost>
+      <cpu_cost>43598</cpu_cost>
+      <time>00:00:01 </time>
+    </operation>
+    <operation name="NESTED LOOPS" id="76" depth="10" pos="1">
+      <card>1</card>
+      <bytes>50</bytes>
+      <cost>4</cost>
+      <io_cost>4</io_cost>
+      <cpu_cost>34576</cpu_cost>
+      <time>00:00:01 </time>
+    </operation>
+    <operation name="NESTED LOOPS" id="77" depth="11" pos="1">
+      <card>1</card>
+      <bytes>23</bytes>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>24614</cpu_cost>
+      <time>00:00:01 </time>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="78" depth="12" pos="1">
+      <object>IDX_GEN_EMPRESA_EMPCID</object>
+      <card>1</card>
+      <bytes>8</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>7321</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;EMP&quot;.&quot;CODEMPRESA&quot;=:B1</predicates>
+      <qblock>SEL$BEDFCF44</qblock>
+      <object_alias>&quot;EMP&quot;@&quot;SEL$25&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY GLOBAL INDEX ROWID" id="79" depth="12" pos="2">
+      <object>VEN_VENDA</object>
+      <card>1</card>
+      <bytes>15</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>17293</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="ROW LOCATION" stop="ROW LOCATION"/>
+      <predicates type="filter">&quot;VDA&quot;.&quot;CODTRANSPORTADOR&quot; IS NOT NULL AND &quot;VDA&quot;.&quot;CODPROCESSO&quot;=11</predicates>
+      <qblock>SEL$BEDFCF44</qblock>
+      <object_alias>&quot;VDA&quot;@&quot;SEL$25&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="80" depth="13" pos="1">
+      <object>VVA_PK</object>
+      <card>1</card>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>9021</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;VDA&quot;.&quot;CODEMPRESA&quot;=:B1 AND &quot;VDA&quot;.&quot;CODVENDA&quot;=:B2</predicates>
+      <qblock>SEL$BEDFCF44</qblock>
+      <object_alias>&quot;VDA&quot;@&quot;SEL$25&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID" id="81" depth="11" pos="2">
+      <object>LOG_FRTTRANSPORTADOR</object>
+      <card>1</card>
+      <bytes>27</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>9962</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">&quot;LFT&quot;.&quot;IDTCORREIOS&quot;=&apos;S&apos; AND &quot;LFT&quot;.&quot;IDTSITTRANSP&quot;=&apos;A&apos;</predicates>
+      <qblock>SEL$BEDFCF44</qblock>
+      <object_alias>&quot;LFT&quot;@&quot;SEL$26&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="82" depth="12" pos="1">
+      <object>LOG_FRTTRANSPORTADOR_PK</object>
+      <card>1</card>
+      <cost>0</cost>
+      <io_cost>0</io_cost>
+      <cpu_cost>1900</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;LFT&quot;.&quot;CODTRANSPORTADOR&quot;=&quot;VDA&quot;.&quot;CODTRANSPORTADOR&quot;</predicates>
+      <qblock>SEL$BEDFCF44</qblock>
+      <object_alias>&quot;LFT&quot;@&quot;SEL$26&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="83" depth="10" pos="2">
+      <object>FORNEC_FOR_PKX</object>
+      <card>1</card>
+      <bytes>14</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>9021</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;FRN&quot;.&quot;FOR_CODIGO&quot;= REGEXP_REPLACE (&quot;LFT&quot;.&quot;NUMCNPJ&quot;,&apos;[^[:digit:]]&apos;)</predicates>
+      <qblock>SEL$BEDFCF44</qblock>
+      <object_alias>&quot;FRN&quot;@&quot;SEL$28&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="84" depth="9" pos="2">
+      <object>GEN_CIDADE_I_CODUF</object>
+      <card>1</card>
+      <bytes>7</bytes>
+      <cost>0</cost>
+      <io_cost>0</io_cost>
+      <cpu_cost>1900</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;GCI&quot;.&quot;CODUF&quot;= (SELECT &quot;CID&quot;.&quot;CODUF&quot; FROM &quot;DELTA&quot;.&quot;GEN_CIDADE&quot; &quot;CID&quot; WHERE &quot;CID&quot;.&quot;CODCIDADE&quot;=:B1) AND &quot;GCI&quot;.&quot;CODCIDADE&quot;=&quot;LFT&quot;.&quot;CODCIDADE&quot;</predicates>
+      <qblock>SEL$BEDFCF44</qblock>
+      <object_alias>&quot;GCI&quot;@&quot;SEL$27&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID" id="85" depth="10" pos="1">
+      <object>GEN_CIDADE</object>
+      <card>1</card>
+      <bytes>7</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>15503</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$30</qblock>
+      <object_alias>&quot;CID&quot;@&quot;SEL$30&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="86" depth="11" pos="1">
+      <object>GCE_PK</object>
+      <card>1</card>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8171</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;CID&quot;.&quot;CODCIDADE&quot;=:B1</predicates>
+      <qblock>SEL$30</qblock>
+      <object_alias>&quot;CID&quot;@&quot;SEL$30&quot;</object_alias>
+    </operation>
+    <operation name="NESTED LOOPS" id="87" depth="7" pos="2">
+      <card>1</card>
+      <bytes>20</bytes>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>26354</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$31</qblock>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID" id="88" depth="8" pos="1">
+      <object>GEN_EMPRESA</object>
+      <card>1</card>
+      <bytes>8</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>9961</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$31</qblock>
+      <object_alias>&quot;EMP&quot;@&quot;SEL$31&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="89" depth="9" pos="1">
+      <object>EMC_PK</object>
+      <card>1</card>
+      <cost>0</cost>
+      <io_cost>0</io_cost>
+      <cpu_cost>1050</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;EMP&quot;.&quot;CODEMPRESA&quot;=:B1</predicates>
+      <qblock>SEL$31</qblock>
+      <object_alias>&quot;EMP&quot;@&quot;SEL$31&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID" id="90" depth="8" pos="2">
+      <object>WMS_ONDAVENDADETALHE</object>
+      <card>1</card>
+      <bytes>12</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>16393</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$31</qblock>
+      <object_alias>&quot;OVD&quot;@&quot;SEL$31&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="91" depth="9" pos="1">
+      <object>IDX_WMS_ONDAVENDADETALHE</object>
+      <card>1</card>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>9021</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;OVD&quot;.&quot;CODEMPRESA&quot;=&quot;EMP&quot;.&quot;CODEMPRESAWMS&quot; AND &quot;OVD&quot;.&quot;CODVENDA&quot;=:B1</predicates>
+      <qblock>SEL$31</qblock>
+      <object_alias>&quot;OVD&quot;@&quot;SEL$31&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="92" depth="2" pos="2">
+      <object>FORNEC_FOR_PKX</object>
+      <card>1</card>
+      <bytes>14</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>9021</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;FRN&quot;.&quot;FOR_CODIGO&quot;= REGEXP_REPLACE (&quot;FRT&quot;.&quot;NUMCNPJ&quot;,&apos;[^[:digit:]]&apos;)</predicates>
+      <qblock>SEL$23</qblock>
+      <object_alias>&quot;FRN&quot;@&quot;SEL$23&quot;</object_alias>
+    </operation>
+    <operation name="HASH" options="UNIQUE" id="93" depth="1" pos="15">
+      <card>201651163</card>
+      <bytes>453513465587</bytes>
+      <temp_space>446936322794000</temp_space>
+      <cost>2508878158318</cost>
+      <io_cost>2507849723409</io_cost>
+      <cpu_cost>20511105826462416</cpu_cost>
+      <time>999:59:59 </time>
+      <qblock>SEL$050678ED</qblock>
+      <other_xml>
+        <info type="nodeid/pflags">121 1</info>
+        <info type="nodeid/pflags">121 1</info>
+        <info type="nodeid/pflags">121 17</info>
+        <info type="nodeid/pflags">121 17</info>
+        <info type="nodeid/pflags">121 1</info>
+        <info type="nodeid/pflags">120 1</info>
+        <info type="nodeid/pflags">120 17</info>
+        <info type="nodeid/pflags">119 1</info>
+        <info type="nodeid/pflags">47 1</info>
+        <info type="nodeid/pflags">46 1</info>
+        <info type="nodeid/pflags">45 1</info>
+        <info type="nodeid/pflags">45 1</info>
+        <info type="nodeid/pflags">44 1</info>
+        <info type="nodeid/pflags">37 1</info>
+        <info type="nodeid/pflags">36 1</info>
+        <info type="nodeid/pflags">35 1</info>
+        <info type="nodeid/pflags">35 1</info>
+        <info type="nodeid/pflags">34 1</info>
+        <info type="nodeid/pflags">32 1</info>
+        <info type="nodeid/pflags">31 1</info>
+        <info type="nodeid/pflags">30 1</info>
+        <info type="nodeid/pflags">30 1</info>
+        <info type="nodeid/pflags">29 1</info>
+        <info type="nodeid/pflags">27 1</info>
+        <info type="nodeid/pflags">26 1</info>
+        <info type="nodeid/pflags">25 1</info>
+        <info type="nodeid/pflags">25 1</info>
+        <info type="nodeid/pflags">24 1</info>
+        <info type="nodeid/pflags">17 1</info>
+        <info type="nodeid/pflags">16 1</info>
+        <info type="nodeid/pflags">15 1</info>
+        <info type="nodeid/pflags">15 1</info>
+        <info type="nodeid/pflags">14 1</info>
+        <info type="nodeid/pflags">12 1</info>
+        <info type="nodeid/pflags">11 1</info>
+        <info type="nodeid/pflags">10 1</info>
+        <info type="nodeid/pflags">10 1</info>
+        <info type="nodeid/pflags">9 1</info>
+        <info type="has_user_tab">yes</info>
+        <info type="db_version">19.0.0.0</info>
+        <info type="parse_schema"><![CDATA["DELTA"]]></info>
+        <info type="plan_hash_full">2803535675</info>
+        <info type="plan_hash">2674084129</info>
+        <info type="plan_hash_2">2558282581</info>
+        <info type="adaptive_plan" note="y">yes</info>
+        <stats type="compilation">
+          <stat name="bg">1317</stat>
+        </stats>
+        <qb_registry>
+          <q o="2">
+            <n><![CDATA[SEL$28]]></n>
+            <f>
+              <h>
+                <t><![CDATA[FRN]]></t>
+                <s><![CDATA[SEL$28]]></s>
+              </h>
+              <h>
+                <t><![CDATA[from$_subquery$_033]]></t>
+                <s><![CDATA[SEL$28]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$7]]></n>
+            <f>
+              <h>
+                <t><![CDATA[GCDCLI]]></t>
+                <s><![CDATA[SEL$7]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="35" h="y">
+            <n><![CDATA[SEL$2D7C893A]]></n>
+            <p><![CDATA[SEL$3B44DCE6]]></p>
+            <i>
+              <o>
+                <t>TA</t>
+                <v><![CDATA[GCD@SEL$3]]></v>
+              </o>
+            </i>
+            <f>
+              <h>
+                <t><![CDATA[EMP]]></t>
+                <s><![CDATA[SEL$3]]></s>
+              </h>
+              <h>
+                <t><![CDATA[GCD]]></t>
+                <s><![CDATA[SEL$3]]></s>
+              </h>
+              <h>
+                <t><![CDATA[CLI]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+              <h>
+                <t><![CDATA[DOC]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+              <h>
+                <t><![CDATA[IOF]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+              <h>
+                <t><![CDATA[ITD]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$35]]></n>
+            <f>
+              <h>
+                <t><![CDATA[VEN]]></t>
+                <s><![CDATA[SEL$35]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2">
+            <n><![CDATA[SEL$27]]></n>
+            <f>
+              <h>
+                <t><![CDATA[GCI]]></t>
+                <s><![CDATA[SEL$27]]></s>
+              </h>
+              <h>
+                <t><![CDATA[from$_subquery$_031]]></t>
+                <s><![CDATA[SEL$27]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2">
+            <n><![CDATA[SEL$12]]></n>
+            <f>
+              <h>
+                <t><![CDATA[USU]]></t>
+                <s><![CDATA[SEL$12]]></s>
+              </h>
+              <h>
+                <t><![CDATA[VVU]]></t>
+                <s><![CDATA[SEL$12]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="18" h="y">
+            <n><![CDATA[SEL$F11C11AD]]></n>
+            <p><![CDATA[SEL$26]]></p>
+            <i>
+              <o>
+                <t>VW</t>
+                <v><![CDATA[SEL$25]]></v>
+              </o>
+            </i>
+            <f>
+              <h>
+                <t><![CDATA[EMP]]></t>
+                <s><![CDATA[SEL$25]]></s>
+              </h>
+              <h>
+                <t><![CDATA[VDA]]></t>
+                <s><![CDATA[SEL$25]]></s>
+              </h>
+              <h>
+                <t><![CDATA[LFT]]></t>
+                <s><![CDATA[SEL$26]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2">
+            <n><![CDATA[SEL$29]]></n>
+            <f>
+              <h>
+                <t><![CDATA[from$_subquery$_035]]></t>
+                <s><![CDATA[SEL$29]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="19" f="y" h="y">
+            <n><![CDATA[SEL$23B2990C]]></n>
+            <p><![CDATA[SEL$CB8A4FBF]]></p>
+            <i>
+              <o>
+                <t>SQ</t>
+                <v><![CDATA[SEL$19]]></v>
+              </o>
+              <o>
+                <t>SQ</t>
+                <v><![CDATA[SEL$20]]></v>
+              </o>
+            </i>
+            <f>
+              <h>
+                <t><![CDATA[VCT]]></t>
+                <s><![CDATA[SEL$1]]></s>
+              </h>
+              <h>
+                <t><![CDATA[VCC]]></t>
+                <s><![CDATA[SEL$19]]></s>
+              </h>
+              <h>
+                <t><![CDATA[VVN]]></t>
+                <s><![CDATA[SEL$2]]></s>
+              </h>
+              <h>
+                <t><![CDATA[CDC]]></t>
+                <s><![CDATA[SEL$20]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="24">
+            <n><![CDATA[SEL$0F6C8EA7]]></n>
+            <p><![CDATA[SEL$2D7C893A]]></p>
+            <i>
+              <o>
+                <t>VW</t>
+                <v><![CDATA[SEL$34]]></v>
+              </o>
+            </i>
+            <f>
+              <h>
+                <t><![CDATA[VW_SQ_1]]></t>
+                <s><![CDATA[SEL$0F6C8EA7]]></s>
+              </h>
+              <h>
+                <t><![CDATA[EMP]]></t>
+                <s><![CDATA[SEL$3]]></s>
+              </h>
+              <h>
+                <t><![CDATA[GCD]]></t>
+                <s><![CDATA[SEL$3]]></s>
+              </h>
+              <h>
+                <t><![CDATA[VVI]]></t>
+                <s><![CDATA[SEL$33]]></s>
+              </h>
+              <h>
+                <t><![CDATA[CLI]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+              <h>
+                <t><![CDATA[DOC]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+              <h>
+                <t><![CDATA[IOF]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+              <h>
+                <t><![CDATA[ITD]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="18" h="y">
+            <n><![CDATA[SEL$459F7ED5]]></n>
+            <p><![CDATA[SEL$27]]></p>
+            <i>
+              <o>
+                <t>VW</t>
+                <v><![CDATA[SEL$F11C11AD]]></v>
+              </o>
+            </i>
+            <f>
+              <h>
+                <t><![CDATA[EMP]]></t>
+                <s><![CDATA[SEL$25]]></s>
+              </h>
+              <h>
+                <t><![CDATA[VDA]]></t>
+                <s><![CDATA[SEL$25]]></s>
+              </h>
+              <h>
+                <t><![CDATA[LFT]]></t>
+                <s><![CDATA[SEL$26]]></s>
+              </h>
+              <h>
+                <t><![CDATA[GCI]]></t>
+                <s><![CDATA[SEL$27]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$11]]></n>
+            <f>
+              <h>
+                <t><![CDATA[TVD]]></t>
+                <s><![CDATA[SEL$11]]></s>
+              </h>
+              <h>
+                <t><![CDATA[VDI]]></t>
+                <s><![CDATA[SEL$11]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2">
+            <n><![CDATA[SEL$33]]></n>
+            <f>
+              <h>
+                <t><![CDATA[VVI]]></t>
+                <s><![CDATA[SEL$33]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$16]]></n>
+            <f>
+              <h>
+                <t><![CDATA[TVD]]></t>
+                <s><![CDATA[SEL$16]]></s>
+              </h>
+              <h>
+                <t><![CDATA[VDI]]></t>
+                <s><![CDATA[SEL$16]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2">
+            <n><![CDATA[SEL$26]]></n>
+            <f>
+              <h>
+                <t><![CDATA[LFT]]></t>
+                <s><![CDATA[SEL$26]]></s>
+              </h>
+              <h>
+                <t><![CDATA[from$_subquery$_029]]></t>
+                <s><![CDATA[SEL$26]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$6]]></n>
+            <f>
+              <h>
+                <t><![CDATA[VDA]]></t>
+                <s><![CDATA[SEL$6]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="7" f="y" h="y">
+            <n><![CDATA[SEL$CBA73870]]></n>
+            <p><![CDATA[SEL$32487103]]></p>
+            <f>
+              <h>
+                <t><![CDATA[USU]]></t>
+                <s><![CDATA[SEL$12]]></s>
+              </h>
+              <h>
+                <t><![CDATA[VVU]]></t>
+                <s><![CDATA[SEL$12]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="19" h="y">
+            <n><![CDATA[SEL$3838280F]]></n>
+            <p><![CDATA[SEL$0F6C8EA7]]></p>
+            <i>
+              <o>
+                <t>SQ</t>
+                <v><![CDATA[SEL$33]]></v>
+              </o>
+              <o>
+                <t>SQ</t>
+                <v><![CDATA[SEL$34]]></v>
+              </o>
+            </i>
+            <f>
+              <h>
+                <t><![CDATA[VW_SQ_1]]></t>
+                <s><![CDATA[SEL$0F6C8EA7]]></s>
+              </h>
+              <h>
+                <t><![CDATA[EMP]]></t>
+                <s><![CDATA[SEL$3]]></s>
+              </h>
+              <h>
+                <t><![CDATA[GCD]]></t>
+                <s><![CDATA[SEL$3]]></s>
+              </h>
+              <h>
+                <t><![CDATA[VVI]]></t>
+                <s><![CDATA[SEL$33]]></s>
+              </h>
+              <h>
+                <t><![CDATA[CLI]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+              <h>
+                <t><![CDATA[DOC]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+              <h>
+                <t><![CDATA[IOF]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+              <h>
+                <t><![CDATA[ITD]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2">
+            <n><![CDATA[SEL$19]]></n>
+            <f>
+              <h>
+                <t><![CDATA[VCC]]></t>
+                <s><![CDATA[SEL$19]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SET$1]]></n>
+            <f>
+              <h>
+                <t><![CDATA[NULL_HALIAS]]></t>
+                <s><![CDATA[SET$1]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2">
+            <n><![CDATA[SEL$4]]></n>
+            <f>
+              <h>
+                <t><![CDATA[CLI]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+              <h>
+                <t><![CDATA[DOC]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+              <h>
+                <t><![CDATA[IOF]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+              <h>
+                <t><![CDATA[ITD]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+              <h>
+                <t><![CDATA[from$_subquery$_045]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$8]]></n>
+            <f>
+              <h>
+                <t><![CDATA[VVI]]></t>
+                <s><![CDATA[SEL$8]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="18" h="y">
+            <n><![CDATA[SEL$CB8A4FBF]]></n>
+            <p><![CDATA[SEL$18]]></p>
+            <i>
+              <o>
+                <t>VW</t>
+                <v><![CDATA[SEL$58A6D7F6]]></v>
+              </o>
+            </i>
+            <f>
+              <h>
+                <t><![CDATA[VCT]]></t>
+                <s><![CDATA[SEL$1]]></s>
+              </h>
+              <h>
+                <t><![CDATA[VVN]]></t>
+                <s><![CDATA[SEL$2]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="12">
+            <n><![CDATA[SEL$56652C19]]></n>
+            <p><![CDATA[SEL$34]]></p>
+            <f>
+              <h>
+                <t><![CDATA[IFT]]></t>
+                <s><![CDATA[SEL$34]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2">
+            <n><![CDATA[SEL$25]]></n>
+            <f>
+              <h>
+                <t><![CDATA[EMP]]></t>
+                <s><![CDATA[SEL$25]]></s>
+              </h>
+              <h>
+                <t><![CDATA[VDA]]></t>
+                <s><![CDATA[SEL$25]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2">
+            <n><![CDATA[SEL$1]]></n>
+            <f>
+              <h>
+                <t><![CDATA[VCT]]></t>
+                <s><![CDATA[SEL$1]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$30]]></n>
+            <f>
+              <h>
+                <t><![CDATA[CID]]></t>
+                <s><![CDATA[SEL$30]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$13]]></n>
+            <f>
+              <h>
+                <t><![CDATA[VVI]]></t>
+                <s><![CDATA[SEL$13]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$21]]></n>
+            <f>
+              <h>
+                <t><![CDATA[VPG]]></t>
+                <s><![CDATA[SEL$21]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$15]]></n>
+            <f>
+              <h>
+                <t><![CDATA[TVE]]></t>
+                <s><![CDATA[SEL$15]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$10]]></n>
+            <f>
+              <h>
+                <t><![CDATA[TVE]]></t>
+                <s><![CDATA[SEL$10]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$31]]></n>
+            <f>
+              <h>
+                <t><![CDATA[EMP]]></t>
+                <s><![CDATA[SEL$31]]></s>
+              </h>
+              <h>
+                <t><![CDATA[OVD]]></t>
+                <s><![CDATA[SEL$31]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="18" h="y">
+            <n><![CDATA[SEL$58A6D7F6]]></n>
+            <p><![CDATA[SEL$2]]></p>
+            <i>
+              <o>
+                <t>VW</t>
+                <v><![CDATA[SEL$1]]></v>
+              </o>
+            </i>
+            <f>
+              <h>
+                <t><![CDATA[VCT]]></t>
+                <s><![CDATA[SEL$1]]></s>
+              </h>
+              <h>
+                <t><![CDATA[VVN]]></t>
+                <s><![CDATA[SEL$2]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="12">
+            <n><![CDATA[SEL$32487103]]></n>
+            <p><![CDATA[SEL$12]]></p>
+            <f>
+              <h>
+                <t><![CDATA[USU]]></t>
+                <s><![CDATA[SEL$12]]></s>
+              </h>
+              <h>
+                <t><![CDATA[VVU]]></t>
+                <s><![CDATA[SEL$12]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="7" f="y" h="y">
+            <n><![CDATA[SEL$0E74186F]]></n>
+            <p><![CDATA[SEL$56652C19]]></p>
+            <f>
+              <h>
+                <t><![CDATA[IFT]]></t>
+                <s><![CDATA[SEL$34]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2">
+            <n><![CDATA[SEL$2]]></n>
+            <f>
+              <h>
+                <t><![CDATA[VVN]]></t>
+                <s><![CDATA[SEL$2]]></s>
+              </h>
+              <h>
+                <t><![CDATA[from$_subquery$_050]]></t>
+                <s><![CDATA[SEL$2]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="19" f="y" h="y">
+            <n><![CDATA[SEL$050678ED]]></n>
+            <p><![CDATA[SEL$36F0658B]]></p>
+            <i>
+              <o>
+                <t>SQ</t>
+                <v><![CDATA[SEL$12]]></v>
+              </o>
+            </i>
+            <f>
+              <h>
+                <t><![CDATA[VW_SQ_1]]></t>
+                <s><![CDATA[SEL$0F6C8EA7]]></s>
+              </h>
+              <h>
+                <t><![CDATA[EMP]]></t>
+                <s><![CDATA[SEL$3]]></s>
+              </h>
+              <h>
+                <t><![CDATA[GCD]]></t>
+                <s><![CDATA[SEL$3]]></s>
+              </h>
+              <h>
+                <t><![CDATA[VVI]]></t>
+                <s><![CDATA[SEL$33]]></s>
+              </h>
+              <h>
+                <t><![CDATA[VW_SSQ_2]]></t>
+                <s><![CDATA[SEL$36F0658B]]></s>
+              </h>
+              <h>
+                <t><![CDATA[CLI]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+              <h>
+                <t><![CDATA[DOC]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+              <h>
+                <t><![CDATA[IOF]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+              <h>
+                <t><![CDATA[ITD]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="18" h="y">
+            <n><![CDATA[SEL$930674E1]]></n>
+            <p><![CDATA[SEL$28]]></p>
+            <i>
+              <o>
+                <t>VW</t>
+                <v><![CDATA[SEL$459F7ED5]]></v>
+              </o>
+            </i>
+            <f>
+              <h>
+                <t><![CDATA[EMP]]></t>
+                <s><![CDATA[SEL$25]]></s>
+              </h>
+              <h>
+                <t><![CDATA[VDA]]></t>
+                <s><![CDATA[SEL$25]]></s>
+              </h>
+              <h>
+                <t><![CDATA[LFT]]></t>
+                <s><![CDATA[SEL$26]]></s>
+              </h>
+              <h>
+                <t><![CDATA[GCI]]></t>
+                <s><![CDATA[SEL$27]]></s>
+              </h>
+              <h>
+                <t><![CDATA[FRN]]></t>
+                <s><![CDATA[SEL$28]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$23]]></n>
+            <f>
+              <h>
+                <t><![CDATA[FRN]]></t>
+                <s><![CDATA[SEL$23]]></s>
+              </h>
+              <h>
+                <t><![CDATA[FRT]]></t>
+                <s><![CDATA[SEL$23]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="18" h="y">
+            <n><![CDATA[SEL$3B44DCE6]]></n>
+            <p><![CDATA[SEL$E6E74641]]></p>
+            <i>
+              <o>
+                <t>VW</t>
+                <v><![CDATA[SEL$006708EA]]></v>
+              </o>
+            </i>
+            <f>
+              <h>
+                <t><![CDATA[EMP]]></t>
+                <s><![CDATA[SEL$3]]></s>
+              </h>
+              <h>
+                <t><![CDATA[GCD]]></t>
+                <s><![CDATA[SEL$3]]></s>
+              </h>
+              <h>
+                <t><![CDATA[CLI]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+              <h>
+                <t><![CDATA[DOC]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+              <h>
+                <t><![CDATA[IOF]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+              <h>
+                <t><![CDATA[ITD]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="24">
+            <n><![CDATA[SEL$36F0658B]]></n>
+            <p><![CDATA[SEL$3838280F]]></p>
+            <i>
+              <o>
+                <t>VW</t>
+                <v><![CDATA[SEL$12]]></v>
+              </o>
+            </i>
+            <f>
+              <h>
+                <t><![CDATA[VW_SQ_1]]></t>
+                <s><![CDATA[SEL$0F6C8EA7]]></s>
+              </h>
+              <h>
+                <t><![CDATA[EMP]]></t>
+                <s><![CDATA[SEL$3]]></s>
+              </h>
+              <h>
+                <t><![CDATA[GCD]]></t>
+                <s><![CDATA[SEL$3]]></s>
+              </h>
+              <h>
+                <t><![CDATA[VVI]]></t>
+                <s><![CDATA[SEL$33]]></s>
+              </h>
+              <h>
+                <t><![CDATA[VW_SSQ_2]]></t>
+                <s><![CDATA[SEL$36F0658B]]></s>
+              </h>
+              <h>
+                <t><![CDATA[CLI]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+              <h>
+                <t><![CDATA[DOC]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+              <h>
+                <t><![CDATA[IOF]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+              <h>
+                <t><![CDATA[ITD]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$5]]></n>
+            <f>
+              <h>
+                <t><![CDATA[GNRE]]></t>
+                <s><![CDATA[SEL$5]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2">
+            <n><![CDATA[SEL$3]]></n>
+            <f>
+              <h>
+                <t><![CDATA[EMP]]></t>
+                <s><![CDATA[SEL$3]]></s>
+              </h>
+              <h>
+                <t><![CDATA[GCD]]></t>
+                <s><![CDATA[SEL$3]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2">
+            <n><![CDATA[SEL$34]]></n>
+            <f>
+              <h>
+                <t><![CDATA[IFT]]></t>
+                <s><![CDATA[SEL$34]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="18" f="y" h="y">
+            <n><![CDATA[SEL$BEDFCF44]]></n>
+            <p><![CDATA[SEL$29]]></p>
+            <i>
+              <o>
+                <t>VW</t>
+                <v><![CDATA[SEL$930674E1]]></v>
+              </o>
+            </i>
+            <f>
+              <h>
+                <t><![CDATA[EMP]]></t>
+                <s><![CDATA[SEL$25]]></s>
+              </h>
+              <h>
+                <t><![CDATA[VDA]]></t>
+                <s><![CDATA[SEL$25]]></s>
+              </h>
+              <h>
+                <t><![CDATA[LFT]]></t>
+                <s><![CDATA[SEL$26]]></s>
+              </h>
+              <h>
+                <t><![CDATA[GCI]]></t>
+                <s><![CDATA[SEL$27]]></s>
+              </h>
+              <h>
+                <t><![CDATA[FRN]]></t>
+                <s><![CDATA[SEL$28]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2">
+            <n><![CDATA[SEL$20]]></n>
+            <f>
+              <h>
+                <t><![CDATA[CDC]]></t>
+                <s><![CDATA[SEL$20]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2">
+            <n><![CDATA[SEL$18]]></n>
+            <f>
+              <h>
+                <t><![CDATA[from$_subquery$_019]]></t>
+                <s><![CDATA[SEL$18]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="67" h="y">
+            <n><![CDATA[SEL$E6E74641]]></n>
+            <p><![CDATA[SEL$4]]></p>
+            <i>
+              <o>
+                <t>VW</t>
+                <v><![CDATA[SEL$006708EA]]></v>
+              </o>
+            </i>
+            <f>
+              <h>
+                <t><![CDATA[CLI]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+              <h>
+                <t><![CDATA[DOC]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+              <h>
+                <t><![CDATA[IOF]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+              <h>
+                <t><![CDATA[ITD]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+              <h>
+                <t><![CDATA[from$_subquery$_045]]></t>
+                <s><![CDATA[SEL$4]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$14]]></n>
+            <f>
+              <h>
+                <t><![CDATA[VDI]]></t>
+                <s><![CDATA[SEL$14]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$22]]></n>
+            <f>
+              <h>
+                <t><![CDATA[EMX]]></t>
+                <s><![CDATA[SEL$22]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$32]]></n>
+            <f>
+              <h>
+                <t><![CDATA[OSV]]></t>
+                <s><![CDATA[SEL$32]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$24]]></n>
+            <f>
+              <h>
+                <t><![CDATA[CODTRANPORTADOR]]></t>
+                <s><![CDATA[SEL$24]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$17]]></n>
+            <f>
+              <h>
+                <t><![CDATA[VNEG]]></t>
+                <s><![CDATA[SEL$17]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="2" f="y">
+            <n><![CDATA[SEL$9]]></n>
+            <f>
+              <h>
+                <t><![CDATA[VDI]]></t>
+                <s><![CDATA[SEL$9]]></s>
+              </h>
+            </f>
+          </q>
+          <q o="68" h="y">
+            <n><![CDATA[SEL$006708EA]]></n>
+            <p><![CDATA[SEL$3]]></p>
+            <f>
+              <h>
+                <t><![CDATA[EMP]]></t>
+                <s><![CDATA[SEL$3]]></s>
+              </h>
+              <h>
+                <t><![CDATA[GCD]]></t>
+                <s><![CDATA[SEL$3]]></s>
+              </h>
+            </f>
+          </q>
+        </qb_registry>
+        <outline_data>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$30" "CID"@"SEL$30" ("GEN_CIDADE"."CODCIDADE"))]]></hint>
+          <hint><![CDATA[PUSH_SUBQ(@"SEL$30")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$BEDFCF44" "GCI"@"SEL$27")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$BEDFCF44" "FRN"@"SEL$28")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$BEDFCF44" "LFT"@"SEL$26")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$BEDFCF44" "VDA"@"SEL$25")]]></hint>
+          <hint><![CDATA[LEADING(@"SEL$BEDFCF44" "EMP"@"SEL$25" "VDA"@"SEL$25" "LFT"@"SEL$26" "FRN"@"SEL$28" "GCI"@"SEL$27")]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$BEDFCF44" "GCI"@"SEL$27" ("GEN_CIDADE"."CODUF" "GEN_CIDADE"."CODCIDADE"))]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$BEDFCF44" "FRN"@"SEL$28" ("FORNEC_FOR"."FOR_CODIGO"))]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$BEDFCF44" "LFT"@"SEL$26" ("LOG_FRTTRANSPORTADOR"."CODTRANSPORTADOR"))]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$BEDFCF44" "VDA"@"SEL$25" ("VEN_VENDA"."CODEMPRESA" "VEN_VENDA"."CODVENDA"))]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$BEDFCF44" "EMP"@"SEL$25" ("GEN_EMPRESA"."CODEMPRESA" "GEN_EMPRESA"."CODCIDADE"))]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$31" "OVD"@"SEL$31")]]></hint>
+          <hint><![CDATA[LEADING(@"SEL$31" "EMP"@"SEL$31" "OVD"@"SEL$31")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$31" "OVD"@"SEL$31" ("WMS_ONDAVENDADETALHE"."CODEMPRESA" "WMS_ONDAVENDADETALHE"."CODVENDA"))]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$31" "EMP"@"SEL$31" ("GEN_EMPRESA"."CODEMPRESA"))]]></hint>
+          <hint><![CDATA[NO_ACCESS(@"SEL$24" "CODTRANPORTADOR"@"SEL$24")]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$15" "TVE"@"SEL$15")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$15" "TVE"@"SEL$15" ("VEN_TIPOVENDAEMPRESA"."CODEMPRESA" "VEN_TIPOVENDAEMPRESA"."CODTIPOVENDA"))]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$10" "TVE"@"SEL$10")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$10" "TVE"@"SEL$10" ("VEN_TIPOVENDAEMPRESA"."CODEMPRESA" "VEN_TIPOVENDAEMPRESA"."CODTIPOVENDA"))]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$5" "GNRE"@"SEL$5" ("INT_INTEGRACAOGNRE"."CODVENDA" "INT_INTEGRACAOGNRE"."CODTIPODOCUMENTO"))]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$6" "VDA"@"SEL$6" ("VEN_VENDA"."CODEMPRESA" "VEN_VENDA"."CODVENDA"))]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$7" "GCDCLI"@"SEL$7" ("GEN_CIDADE"."CODCIDADE"))]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$8" "VVI"@"SEL$8")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$8" "VVI"@"SEL$8" ("VEN_VENDAITEM"."CODEMPRESA" "VEN_VENDAITEM"."CODVENDA"))]]></hint>
+          <hint><![CDATA[PUSH_SUBQ(@"SEL$10")]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$9" "VDI"@"SEL$9")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$9" "VDI"@"SEL$9" ("VEN_VENDAITEM"."CODEMPRESA" "VEN_VENDAITEM"."CODVENDA"))]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$11" "VDI"@"SEL$11")]]></hint>
+          <hint><![CDATA[LEADING(@"SEL$11" "TVD"@"SEL$11" "VDI"@"SEL$11")]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$11" "VDI"@"SEL$11")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$11" "VDI"@"SEL$11" ("VEN_VENDAITEM"."CODEMPRESA" "VEN_VENDAITEM"."CODVENDA"))]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$11" "TVD"@"SEL$11" ("VEN_TIPOVENDA"."CODTIPONEGOCIO" "VEN_TIPOVENDA"."CODTIPOVENDA"))]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$13" "VVI"@"SEL$13")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$13" "VVI"@"SEL$13" ("VEN_VENDAITEM"."CODEMPRESA" "VEN_VENDAITEM"."CODVENDA"))]]></hint>
+          <hint><![CDATA[PUSH_SUBQ(@"SEL$15")]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$14" "VDI"@"SEL$14")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$14" "VDI"@"SEL$14" ("VEN_VENDAITEM"."CODEMPRESA" "VEN_VENDAITEM"."CODVENDA"))]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$16" "VDI"@"SEL$16")]]></hint>
+          <hint><![CDATA[LEADING(@"SEL$16" "TVD"@"SEL$16" "VDI"@"SEL$16")]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$16" "VDI"@"SEL$16")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$16" "VDI"@"SEL$16" ("VEN_VENDAITEM"."CODEMPRESA" "VEN_VENDAITEM"."CODVENDA"))]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$16" "TVD"@"SEL$16" ("VEN_TIPOVENDA"."CODTIPONEGOCIO" "VEN_TIPOVENDA"."CODTIPOVENDA"))]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$17" "VNEG"@"SEL$17")]]></hint>
+          <hint><![CDATA[INDEX_SS(@"SEL$17" "VNEG"@"SEL$17" ("VEN_VENDANEGOCIACAO"."CODVENDA" "VEN_VENDANEGOCIACAO"."CODEMPRESA" "VEN_VENDANEGOCIACAO"."CODPAGAMENTO"))]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$23B2990C" "VCC"@"SEL$19")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$23B2990C" "VCT"@"SEL$1")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$23B2990C" "CDC"@"SEL$20")]]></hint>
+          <hint><![CDATA[LEADING(@"SEL$23B2990C" "VVN"@"SEL$2" "CDC"@"SEL$20" "VCT"@"SEL$1" "VCC"@"SEL$19")]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$23B2990C" "VCC"@"SEL$19")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$23B2990C" "VCC"@"SEL$19" ("VEN_CARTAOCANCELAMENTO"."CODEMPRESA" "VEN_CARTAOCANCELAMENTO"."CODNSUHOST" "VEN_CARTAOCANCELAMENTO"."DATTRANSACAO"))]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$23B2990C" "VCT"@"SEL$1")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$23B2990C" "VCT"@"SEL$1" ("VEN_CARTAOTRANSACAO"."CODEMPRESA"))]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$23B2990C" "CDC"@"SEL$20")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$23B2990C" "CDC"@"SEL$20" ("VEN_PAGCARTEIRADIGITALCANCELA"."CODEMPRESA" "VEN_PAGCARTEIRADIGITALCANCELA"."CODNSUHOST" "VEN_PAGCARTEIRADIGITALCANCELA"."DATTRANSACAO"))]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$23B2990C" "VVN"@"SEL$2")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$23B2990C" "VVN"@"SEL$2" ("VEN_VENDANEGOCIACAO"."CODVENDA" "VEN_VENDANEGOCIACAO"."CODEMPRESA" "VEN_VENDANEGOCIACAO"."CODPAGAMENTO"))]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$21" "VPG"@"SEL$21")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$21" "VPG"@"SEL$21" ("VEN_VENDAPAGAMENTO"."CODVENDA" "VEN_VENDAPAGAMENTO"."CODEMPRESA" "VEN_VENDAPAGAMENTO"."CODTIPOPAGAMENTO"))]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$22" "EMX"@"SEL$22" ("GEN_EMPRESAMAXPAR"."CODCLIENTE"))]]></hint>
+          <hint><![CDATA[PARTIAL_JOIN(@"SEL$23" "FRN"@"SEL$23")]]></hint>
+          <hint><![CDATA[PUSH_SUBQ(@"SEL$24")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$23" "FRN"@"SEL$23")]]></hint>
+          <hint><![CDATA[LEADING(@"SEL$23" "FRT"@"SEL$23" "FRN"@"SEL$23")]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$23" "FRN"@"SEL$23" ("FORNEC_FOR"."FOR_CODIGO"))]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$23" "FRT"@"SEL$23" ("LOG_FRTTRANSPORTADOR"."CODTRANSPORTADOR"))]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$32" "OSV"@"SEL$32")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$32" "OSV"@"SEL$32" ("SEG_ORDEMSERVICOVENDA"."CODEMPRESA" "SEG_ORDEMSERVICOVENDA"."CODVENDA"))]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$35" "VEN"@"SEL$35" ("VEN_VENDA"."CODEMPRESA" "VEN_VENDA"."CODVENDA"))]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$0E74186F" "IFT"@"SEL$34")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$0E74186F" "IFT"@"SEL$34" ("INT_ORDEMFATURAMENTO"."NUMDOCUMENTO" "INT_ORDEMFATURAMENTO"."CODTIPODOCUMENTO"))]]></hint>
+          <hint><![CDATA[NLJ_BATCHING(@"SEL$CBA73870" "USU"@"SEL$12")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$CBA73870" "USU"@"SEL$12")]]></hint>
+          <hint><![CDATA[LEADING(@"SEL$CBA73870" "VVU"@"SEL$12" "USU"@"SEL$12")]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$CBA73870" "USU"@"SEL$12" ("GEN_USUARIO"."CODUSUARIO"))]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$CBA73870" "VVU"@"SEL$12" ("VEN_VENDAUSUARIO"."CODEMPRESA" "VEN_VENDAUSUARIO"."CODVENDA" "VEN_VENDAUSUARIO"."CODUSUARIO"))]]></hint>
+          <hint><![CDATA[PQ_FILTER(@"SEL$050678ED" SERIAL)]]></hint>
+          <hint><![CDATA[PUSH_SUBQ(@"SEL$32")]]></hint>
+          <hint><![CDATA[USE_HASH_AGGREGATION(@"SEL$050678ED")]]></hint>
+          <hint><![CDATA[NLJ_BATCHING(@"SEL$050678ED" "CLI"@"SEL$4")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$050678ED" "CLI"@"SEL$4")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$050678ED" "VW_SSQ_2"@"SEL$36F0658B")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$050678ED" "VVI"@"SEL$33")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$050678ED" "DOC"@"SEL$4")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$050678ED" "VW_SQ_1"@"SEL$0F6C8EA7")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$050678ED" "IOF"@"SEL$4")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$050678ED" "GCD"@"SEL$3")]]></hint>
+          <hint><![CDATA[USE_NL(@"SEL$050678ED" "ITD"@"SEL$4")]]></hint>
+          <hint><![CDATA[LEADING(@"SEL$050678ED" "EMP"@"SEL$3" "ITD"@"SEL$4" "GCD"@"SEL$3" "IOF"@"SEL$4" "VW_SQ_1"@"SEL$0F6C8EA7" "DOC"@"SEL$4" "VVI"@"SEL$33" "VW_SSQ_2"@"SEL$36F0658B" "CLI"@"SEL$4")]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$050678ED" "CLI"@"SEL$4" ("GEN_CLIENTE"."CODCLIENTE"))]]></hint>
+          <hint><![CDATA[NO_ACCESS(@"SEL$050678ED" "VW_SSQ_2"@"SEL$36F0658B")]]></hint>
+          <hint><![CDATA[INDEX(@"SEL$050678ED" "VVI"@"SEL$33" ("VEN_VENDAITEM"."CODVENDA"))]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$050678ED" "DOC"@"SEL$4")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$050678ED" "DOC"@"SEL$4" ("VEN_VENDA"."CODVENDA" "VEN_VENDA"."CODEMPRESA"))]]></hint>
+          <hint><![CDATA[NO_ACCESS(@"SEL$050678ED" "VW_SQ_1"@"SEL$0F6C8EA7")]]></hint>
+          <hint><![CDATA[BATCH_TABLE_ACCESS_BY_ROWID(@"SEL$050678ED" "IOF"@"SEL$4")]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$050678ED" "IOF"@"SEL$4" ("INT_ORDEMFATURAMENTO"."CODEMPRESA" "INT_ORDEMFATURAMENTO"."CODTIPODOCUMENTO" "INT_ORDEMFATURAMENTO"."DATCRIACAO"))]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$050678ED" "GCD"@"SEL$3" ("GEN_CIDADE"."CODCIDADE"))]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$050678ED" "ITD"@"SEL$4" ("INT_TIPODOCUMENTO"."CODTIPODOCUMENTO"))]]></hint>
+          <hint><![CDATA[INDEX_RS_ASC(@"SEL$050678ED" "EMP"@"SEL$3" ("GEN_EMPRESA"."CODEMPRESA"))]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$3")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$4")]]></hint>
+          <hint><![CDATA[ANSI_REARCH(@"SEL$3")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$006708EA")]]></hint>
+          <hint><![CDATA[ANSI_REARCH(@"SEL$4")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$E6E74641")]]></hint>
+          <hint><![CDATA[MERGE(@"SEL$006708EA" >"SEL$E6E74641")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$3B44DCE6")]]></hint>
+          <hint><![CDATA[OUTER_JOIN_TO_INNER(@"SEL$3B44DCE6" "GCD"@"SEL$3")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$2D7C893A")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$25")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$26")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$33")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$0F6C8EA7")]]></hint>
+          <hint><![CDATA[MERGE(@"SEL$25" >"SEL$26")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$F11C11AD")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$27")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$1")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$2")]]></hint>
+          <hint><![CDATA[UNNEST(@"SEL$33")]]></hint>
+          <hint><![CDATA[UNNEST(@"SEL$34")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$3838280F")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$34")]]></hint>
+          <hint><![CDATA[MERGE(@"SEL$F11C11AD" >"SEL$27")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$459F7ED5")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$28")]]></hint>
+          <hint><![CDATA[MERGE(@"SEL$1" >"SEL$2")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$58A6D7F6")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$18")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$12")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$36F0658B")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$56652C19")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$32487103")]]></hint>
+          <hint><![CDATA[MERGE(@"SEL$459F7ED5" >"SEL$28")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$930674E1")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$29")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$19")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$20")]]></hint>
+          <hint><![CDATA[MERGE(@"SEL$58A6D7F6" >"SEL$18")]]></hint>
+          <hint><![CDATA[OUTLINE(@"SEL$CB8A4FBF")]]></hint>
+          <hint><![CDATA[UNNEST(@"SEL$12")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$050678ED")]]></hint>
+          <hint><![CDATA[PUSH_PRED(@"SEL$050678ED" "VW_SQ_1"@"SEL$0F6C8EA7" 13 12 11)]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$0E74186F")]]></hint>
+          <hint><![CDATA[PUSH_PRED(@"SEL$050678ED" "VW_SSQ_2"@"SEL$36F0658B" 23 22)]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$CBA73870")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$35")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$32")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$23")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$24")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SET$1")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$31")]]></hint>
+          <hint><![CDATA[MERGE(@"SEL$930674E1" >"SEL$29")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$BEDFCF44")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$30")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$22")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$21")]]></hint>
+          <hint><![CDATA[UNNEST(@"SEL$19")]]></hint>
+          <hint><![CDATA[UNNEST(@"SEL$20")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$23B2990C")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$17")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$16")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$14")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$15")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$13")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$11")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$9")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$10")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$8")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$7")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$6")]]></hint>
+          <hint><![CDATA[OUTLINE_LEAF(@"SEL$5")]]></hint>
+          <hint><![CDATA[ALL_ROWS]]></hint>
+          <hint><![CDATA[DB_VERSION('19.1.0')]]></hint>
+          <hint><![CDATA[OPTIMIZER_FEATURES_ENABLE('19.1.0')]]></hint>
+          <hint><![CDATA[IGNORE_OPTIM_EMBEDDED_HINTS]]></hint>
+        </outline_data>
+      </other_xml>
+    </operation>
+    <operation name="FILTER" id="94" depth="2" pos="1">
+      <predicates type="filter">:SERVICOMOVEL=&apos;A&apos; OR  EXISTS (SELECT 0 FROM &quot;DELTA&quot;.&quot;VEN_VENDA&quot; &quot;VEN&quot; WHERE &quot;VEN&quot;.&quot;CODVENDA&quot;=:B1 AND &quot;VEN&quot;.&quot;CODEMPRESA&quot;=:B2 AND &quot;VEN&quot;.&quot;IDTSERVICOMOVEL&quot;=:SERVICOMOVEL)</predicates>
+    </operation>
+    <operation name="NESTED LOOPS" id="95" depth="3" pos="1">
+      <card>4</card>
+      <bytes>8996</bytes>
+      <cost>65</cost>
+      <io_cost>65</io_cost>
+      <cpu_cost>539805</cpu_cost>
+      <time>00:00:01 </time>
+    </operation>
+    <operation name="NESTED LOOPS" id="96" depth="4" pos="1">
+      <card>4</card>
+      <bytes>8996</bytes>
+      <cost>65</cost>
+      <io_cost>65</io_cost>
+      <cpu_cost>539805</cpu_cost>
+      <time>00:00:01 </time>
+    </operation>
+    <operation name="NESTED LOOPS" options="OUTER" id="97" depth="5" pos="1">
+      <card>4</card>
+      <bytes>8752</bytes>
+      <cost>57</cost>
+      <io_cost>57</io_cost>
+      <cpu_cost>469273</cpu_cost>
+      <time>00:00:01 </time>
+    </operation>
+    <operation name="NESTED LOOPS" options="SEMI" id="98" depth="6" pos="1">
+      <card>4</card>
+      <bytes>728</bytes>
+      <cost>41</cost>
+      <io_cost>41</io_cost>
+      <cpu_cost>343530</cpu_cost>
+      <time>00:00:01 </time>
+    </operation>
+    <operation name="NESTED LOOPS" id="99" depth="7" pos="1">
+      <card>4</card>
+      <bytes>704</bytes>
+      <cost>33</cost>
+      <io_cost>33</io_cost>
+      <cpu_cost>282359</cpu_cost>
+      <time>00:00:01 </time>
+    </operation>
+    <operation name="NESTED LOOPS" id="100" depth="8" pos="1">
+      <card>4</card>
+      <bytes>560</bytes>
+      <cost>21</cost>
+      <io_cost>21</io_cost>
+      <cpu_cost>179790</cpu_cost>
+      <time>00:00:01 </time>
+    </operation>
+    <operation name="NESTED LOOPS" id="101" depth="9" pos="1">
+      <card>1</card>
+      <bytes>127</bytes>
+      <cost>17</cost>
+      <io_cost>17</io_cost>
+      <cpu_cost>150339</cpu_cost>
+      <time>00:00:01 </time>
+    </operation>
+    <operation name="NESTED LOOPS" id="102" depth="10" pos="1">
+      <card>1</card>
+      <bytes>61</bytes>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>27714</cpu_cost>
+      <time>00:00:01 </time>
+    </operation>
+    <operation name="NESTED LOOPS" id="103" depth="11" pos="1">
+      <card>1</card>
+      <bytes>54</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>18483</cpu_cost>
+      <time>00:00:01 </time>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID" id="104" depth="12" pos="1">
+      <object>GEN_EMPRESA</object>
+      <card>1</card>
+      <bytes>27</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>9901</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$050678ED</qblock>
+      <object_alias>&quot;EMP&quot;@&quot;SEL$3&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="105" depth="13" pos="1">
+      <object>EMC_PK</object>
+      <card>1</card>
+      <cost>0</cost>
+      <io_cost>0</io_cost>
+      <cpu_cost>1050</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;EMP&quot;.&quot;CODEMPRESA&quot;=TO_NUMBER(:CODEMPRESA)</predicates>
+      <qblock>SEL$050678ED</qblock>
+      <object_alias>&quot;EMP&quot;@&quot;SEL$3&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID" id="106" depth="12" pos="2">
+      <object>INT_TIPODOCUMENTO</object>
+      <card>1</card>
+      <bytes>27</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>8581</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$050678ED</qblock>
+      <object_alias>&quot;ITD&quot;@&quot;SEL$4&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="107" depth="13" pos="1">
+      <object>ITO_TIPDOCUMENTO_PK</object>
+      <card>1</card>
+      <cost>0</cost>
+      <io_cost>0</io_cost>
+      <cpu_cost>1050</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;ITD&quot;.&quot;CODTIPODOCUMENTO&quot;=:CODTIPODOCUMENTO</predicates>
+      <qblock>SEL$050678ED</qblock>
+      <object_alias>&quot;ITD&quot;@&quot;SEL$4&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID" id="108" depth="11" pos="2">
+      <object>GEN_CIDADE</object>
+      <card>1</card>
+      <bytes>7</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>9231</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$050678ED</qblock>
+      <object_alias>&quot;GCD&quot;@&quot;SEL$3&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="109" depth="12" pos="1">
+      <object>GCE_PK</object>
+      <card>1</card>
+      <cost>0</cost>
+      <io_cost>0</io_cost>
+      <cpu_cost>1900</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;GCD&quot;.&quot;CODCIDADE&quot;=&quot;EMP&quot;.&quot;CODCIDADE&quot;</predicates>
+      <qblock>SEL$050678ED</qblock>
+      <object_alias>&quot;GCD&quot;@&quot;SEL$3&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" id="110" depth="10" pos="2">
+      <object>INT_ORDEMFATURAMENTO</object>
+      <card>1</card>
+      <bytes>66</bytes>
+      <cost>14</cost>
+      <io_cost>14</io_cost>
+      <cpu_cost>122624</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">&quot;IOF&quot;.&quot;NUMNOTAMXM&quot; IS NULL AND NVL(UPPER(&quot;IOF&quot;.&quot;FAT_STATUS&quot;),&apos;A&apos;)=&apos;A&apos;</predicates>
+      <qblock>SEL$050678ED</qblock>
+      <object_alias>&quot;IOF&quot;@&quot;SEL$4&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="111" depth="11" pos="1">
+      <object>IDX_EMP_DOC_DAT</object>
+      <card>15</card>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>22043</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;IOF&quot;.&quot;CODEMPRESA&quot;=TO_NUMBER(:CODEMPRESA) AND &quot;IOF&quot;.&quot;CODTIPODOCUMENTO&quot;=:CODTIPODOCUMENTO AND &quot;IOF&quot;.&quot;DATCRIACAO&quot;&gt;=:DATACRIACAOINICIAL AND &quot;IOF&quot;.&quot;DATCRIACAO&quot;&lt;=TO_NUMBER(:DATACRIACAOFINAL)+.9999884259259259259259259259259259259259</predicates>
+      <qblock>SEL$050678ED</qblock>
+      <object_alias>&quot;IOF&quot;@&quot;SEL$4&quot;</object_alias>
+    </operation>
+    <operation name="VIEW PUSHED PREDICATE" id="112" depth="9" pos="2">
+      <object>VW_SQ_1</object>
+      <card>1</card>
+      <bytes>13</bytes>
+      <cost>4</cost>
+      <io_cost>4</io_cost>
+      <cpu_cost>29451</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">&quot;IOF&quot;.&quot;NUMORDEM&quot;=&quot;MAX(IFT.NUMORDEM)&quot;</predicates>
+      <qblock>SEL$0E74186F</qblock>
+      <object_alias>&quot;VW_SQ_1&quot;@&quot;SEL$0F6C8EA7&quot;</object_alias>
+    </operation>
+    <operation name="FILTER" id="113" depth="10" pos="1">
+      <predicates type="filter">COUNT(*)&gt;0 AND TO_NUMBER(:DATACRIACAOFINAL)+.9999884259259259259259259259259259259259&gt;=:DATACRIACAOINICIAL</predicates>
+      <qblock>SEL$0E74186F</qblock>
+    </operation>
+    <operation name="SORT" options="AGGREGATE" id="114" depth="11" pos="1">
+      <card>1</card>
+      <bytes>15</bytes>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" id="115" depth="12" pos="1">
+      <object>INT_ORDEMFATURAMENTO</object>
+      <card>1</card>
+      <bytes>15</bytes>
+      <cost>4</cost>
+      <io_cost>4</io_cost>
+      <cpu_cost>29451</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="filter">NVL(&quot;CODTRECHOORIGEM&quot;,&quot;CODEMPRESA&quot;)=NVL(&quot;CODTRECHOORIGEM&quot;,&quot;CODEMPRESA&quot;)</predicates>
+      <qblock>SEL$0E74186F</qblock>
+      <object_alias>&quot;IFT&quot;@&quot;SEL$34&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="116" depth="13" pos="1">
+      <object>IDX_INT_ORDEMFATURA_DOCTPDOC</object>
+      <card>1</card>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>21564</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;IFT&quot;.&quot;NUMDOCUMENTO&quot;=&quot;IOF&quot;.&quot;NUMDOCUMENTO&quot; AND &quot;IFT&quot;.&quot;CODTIPODOCUMENTO&quot;=&quot;IOF&quot;.&quot;CODTIPODOCUMENTO&quot;</predicates>
+      <qblock>SEL$0E74186F</qblock>
+      <object_alias>&quot;IFT&quot;@&quot;SEL$34&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY GLOBAL INDEX ROWID BATCHED" id="117" depth="8" pos="2">
+      <object>VEN_VENDA</object>
+      <card>1</card>
+      <bytes>36</bytes>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>26726</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="ROW LOCATION" stop="ROW LOCATION"/>
+      <predicates type="filter">&quot;DOC&quot;.&quot;IDTMOVIMENTO&quot;=:STATUSVENDA</predicates>
+      <qblock>SEL$050678ED</qblock>
+      <object_alias>&quot;DOC&quot;@&quot;SEL$4&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="118" depth="9" pos="1">
+      <object>IDX_VENVENDACDVENCODEMP</object>
+      <card>1</card>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>15493</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;DOC&quot;.&quot;CODVENDA&quot;=&quot;IOF&quot;.&quot;NUMDOCUMENTO&quot;</predicates>
+      <qblock>SEL$050678ED</qblock>
+      <object_alias>&quot;DOC&quot;@&quot;SEL$4&quot;</object_alias>
+    </operation>
+    <operation name="PARTITION RANGE" options="ITERATOR" id="119" depth="7" pos="2">
+      <card>34600334</card>
+      <bytes>207602004</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>15293</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="KEY" stop="KEY"/>
+    </operation>
+    <operation name="PARTITION HASH" options="ALL" id="120" depth="8" pos="1">
+      <card>34600334</card>
+      <bytes>207602004</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>15293</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="1" stop="10"/>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="121" depth="9" pos="1">
+      <object>IDX_VEN_VENDAITEM_VEND</object>
+      <card>34600334</card>
+      <bytes>207602004</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>15293</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="KEY" stop="KEY"/>
+      <predicates type="access">&quot;VVI&quot;.&quot;CODVENDA&quot;=&quot;DOC&quot;.&quot;CODVENDA&quot;</predicates>
+      <qblock>SEL$050678ED</qblock>
+      <object_alias>&quot;VVI&quot;@&quot;SEL$33&quot;</object_alias>
+    </operation>
+    <operation name="VIEW PUSHED PREDICATE" id="122" depth="6" pos="2">
+      <object>VW_SSQ_2</object>
+      <card>1</card>
+      <bytes>2006</bytes>
+      <cost>4</cost>
+      <io_cost>4</io_cost>
+      <cpu_cost>31436</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$CBA73870</qblock>
+      <object_alias>&quot;VW_SSQ_2&quot;@&quot;SEL$36F0658B&quot;</object_alias>
+    </operation>
+    <operation name="SORT" options="GROUP BY" id="123" depth="7" pos="1">
+      <card>1</card>
+      <bytes>35</bytes>
+      <cost>4</cost>
+      <io_cost>4</io_cost>
+      <cpu_cost>31436</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$CBA73870</qblock>
+    </operation>
+    <operation name="NESTED LOOPS" id="124" depth="8" pos="1">
+      <card>1</card>
+      <bytes>35</bytes>
+      <cost>4</cost>
+      <io_cost>4</io_cost>
+      <cpu_cost>31436</cpu_cost>
+      <time>00:00:01 </time>
+    </operation>
+    <operation name="NESTED LOOPS" id="125" depth="9" pos="1">
+      <card>1</card>
+      <bytes>35</bytes>
+      <cost>4</cost>
+      <io_cost>4</io_cost>
+      <cpu_cost>31436</cpu_cost>
+      <time>00:00:01 </time>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="126" depth="10" pos="1">
+      <object>VVEO_PK</object>
+      <card>1</card>
+      <bytes>15</bytes>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>21564</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;VVU&quot;.&quot;CODEMPRESA&quot;=&quot;DOC&quot;.&quot;CODEMPRESA&quot; AND &quot;VVU&quot;.&quot;CODVENDA&quot;=&quot;DOC&quot;.&quot;CODVENDA&quot;</predicates>
+      <qblock>SEL$CBA73870</qblock>
+      <object_alias>&quot;VVU&quot;@&quot;SEL$12&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="127" depth="10" pos="2">
+      <object>GUO_PK</object>
+      <card>1</card>
+      <cost>0</cost>
+      <io_cost>0</io_cost>
+      <cpu_cost>1900</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;USU&quot;.&quot;CODUSUARIO&quot;=&quot;VVU&quot;.&quot;CODUSUARIO&quot;</predicates>
+      <qblock>SEL$CBA73870</qblock>
+      <object_alias>&quot;USU&quot;@&quot;SEL$12&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID" id="128" depth="9" pos="2">
+      <object>GEN_USUARIO</object>
+      <card>1</card>
+      <bytes>20</bytes>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>9871</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$CBA73870</qblock>
+      <object_alias>&quot;USU&quot;@&quot;SEL$12&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="129" depth="5" pos="2">
+      <object>CLE_PK</object>
+      <card>1</card>
+      <cost>1</cost>
+      <io_cost>1</io_cost>
+      <cpu_cost>9021</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;CLI&quot;.&quot;CODCLIENTE&quot;=NVL( (SELECT &quot;OSV&quot;.&quot;CODCLIENTESEGURADO&quot; FROM &quot;DELTA&quot;.&quot;SEG_ORDEMSERVICOVENDA&quot; &quot;OSV&quot; WHERE ROWNUM=1 AND &quot;OSV&quot;.&quot;CODVENDA&quot;=:B1 AND &quot;OSV&quot;.&quot;CODEMPRESA&quot;=:B2),&quot;DOC&quot;.&quot;CODCLIENTE&quot;)</predicates>
+      <qblock>SEL$050678ED</qblock>
+      <object_alias>&quot;CLI&quot;@&quot;SEL$4&quot;</object_alias>
+    </operation>
+    <operation name="COUNT" options="STOPKEY" id="130" depth="6" pos="1">
+      <predicates type="filter">ROWNUM=1</predicates>
+      <qblock>SEL$32</qblock>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID BATCHED" id="131" depth="7" pos="1">
+      <object>SEG_ORDEMSERVICOVENDA</object>
+      <card>1</card>
+      <bytes>16</bytes>
+      <cost>4</cost>
+      <io_cost>4</io_cost>
+      <cpu_cost>28936</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$32</qblock>
+      <object_alias>&quot;OSV&quot;@&quot;SEL$32&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="RANGE SCAN" id="132" depth="8" pos="1">
+      <object>IDX_SEG_OSVENDA</object>
+      <card>1</card>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>21564</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;OSV&quot;.&quot;CODEMPRESA&quot;=:B1 AND &quot;OSV&quot;.&quot;CODVENDA&quot;=:B2</predicates>
+      <qblock>SEL$32</qblock>
+      <object_alias>&quot;OSV&quot;@&quot;SEL$32&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY INDEX ROWID" id="133" depth="4" pos="2">
+      <object>GEN_CLIENTE</object>
+      <card>1</card>
+      <bytes>61</bytes>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>17633</cpu_cost>
+      <time>00:00:01 </time>
+      <qblock>SEL$050678ED</qblock>
+      <object_alias>&quot;CLI&quot;@&quot;SEL$4&quot;</object_alias>
+    </operation>
+    <operation name="TABLE ACCESS" options="BY GLOBAL INDEX ROWID" id="134" depth="3" pos="2">
+      <object>VEN_VENDA</object>
+      <card>1</card>
+      <bytes>12</bytes>
+      <cost>3</cost>
+      <io_cost>3</io_cost>
+      <cpu_cost>23534</cpu_cost>
+      <time>00:00:01 </time>
+      <partition start="ROW LOCATION" stop="ROW LOCATION"/>
+      <predicates type="filter">&quot;VEN&quot;.&quot;IDTSERVICOMOVEL&quot;=:SERVICOMOVEL</predicates>
+      <qblock>SEL$35</qblock>
+      <object_alias>&quot;VEN&quot;@&quot;SEL$35&quot;</object_alias>
+    </operation>
+    <operation name="INDEX" options="UNIQUE SCAN" id="135" depth="4" pos="1">
+      <object>VVA_PK</object>
+      <card>1</card>
+      <cost>2</cost>
+      <io_cost>2</io_cost>
+      <cpu_cost>15293</cpu_cost>
+      <time>00:00:01 </time>
+      <predicates type="access">&quot;VEN&quot;.&quot;CODEMPRESA&quot;=:B1 AND &quot;VEN&quot;.&quot;CODVENDA&quot;=:B2</predicates>
+      <qblock>SEL$35</qblock>
+      <object_alias>&quot;VEN&quot;@&quot;SEL$35&quot;</object_alias>
+    </operation>
+  </plan>
+</report>
